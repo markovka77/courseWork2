@@ -3,7 +3,7 @@ package com.skypro.coursework2;
 import java.util.Objects;
 
 public class Question {
-   private String question;
+    private String question;
     private String answer;
 
     public Question(String question, String answer) {

@@ -1,5 +1,7 @@
-package com.skypro.coursework2;
+package com.skypro.coursework2.Service;
 
+import com.skypro.coursework2.Question;
+import com.skypro.coursework2.QuestionService;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
@@ -10,7 +12,7 @@ import java.util.Set;
 @Service
 public class JavaQuestionService implements QuestionService {
 
-        public Set<Question> questions = new HashSet<>();
+        public static Set<Question> questions = new HashSet<>();
 
 
         @Override
@@ -43,9 +45,9 @@ public class JavaQuestionService implements QuestionService {
             int tmp = 0;
             Random random = new Random();
             if (questions.size() < Integer.MAX_VALUE) {
-                tmp = questions.size();
+              tmp = questions.size();
             }
-            int e = random.nextInt(tmp, 0);
+            int e = random.nextInt(tmp);
 
             return questions.stream()
                     .toList()
