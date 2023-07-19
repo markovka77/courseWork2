@@ -9,24 +9,24 @@ import org.junit.jupiter.params.provider.CsvSource;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.mockito.stubbing.Answer;
 
 
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.BDDMockito.then;
+import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
 class JavaQuestionServiceTest {
      static Set<Question> testSet = new HashSet<>();
-//           new Question( "What can I do?","All what I can!"),
-//           new Question ("Why I do it?","because I want live better!"),
-//            new Question("When I must do it?","Now!")
-//     );
-//
+
     @Mock
-JavaQuestionService questions;
+    JavaQuestionService questionsMock;
     @InjectMocks
     JavaQuestionService javaQuestionService;
 
@@ -53,6 +53,14 @@ JavaQuestionService questions;
         Question question = new Question("Question","Answer");
         testSet.remove(question);
         assertNotEquals(testSet,question);
+    }
+
+
+    @Test
+    void getAll(){
+        when(questionsMock.getAll()).thenReturn(testSet);
+        Object actual = questionsMock.getAll();
+        assertEquals(actual,testSet);
     }
 
 
