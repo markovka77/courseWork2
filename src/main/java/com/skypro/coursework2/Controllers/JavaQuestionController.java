@@ -1,6 +1,5 @@
 package com.skypro.coursework2.Controllers;
 
-import com.skypro.coursework2.Service.JavaQuestionService;
 import com.skypro.coursework2.Question;
 import com.skypro.coursework2.QuestionService;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,7 +13,7 @@ import java.util.Collection;
 @RequestMapping("/exam/java")
 public class JavaQuestionController {
 
-    QuestionService questionService = new JavaQuestionService();
+    private QuestionService questionService;
 
     public JavaQuestionController(QuestionService questionService) {
         this.questionService = questionService;

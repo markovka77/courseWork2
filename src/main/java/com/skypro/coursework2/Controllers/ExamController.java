@@ -1,7 +1,6 @@
 package com.skypro.coursework2.Controllers;
 
 import com.skypro.coursework2.ExaminerService;
-import com.skypro.coursework2.Service.ExaminerServiceImpl;
 import com.skypro.coursework2.Question;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,7 +13,7 @@ import java.util.Collection;
 @RequestMapping("/exam/get")
 
 public class ExamController {
-    ExaminerService examinerService = new ExaminerServiceImpl();
+    private ExaminerService examinerService;
 
     public ExamController(ExaminerService examinerService) {
         this.examinerService = examinerService;
