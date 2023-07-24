@@ -12,7 +12,7 @@ import java.util.Set;
 @Service
 public class JavaQuestionService implements QuestionService {
 
-    Set<Question> questions = new HashSet<>();
+    private Set<Question> questions = new HashSet<>();
 
 
     @Override

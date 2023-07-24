@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.Collection;
 import java.util.HashSet;
-import java.util.Random;
 import java.util.Set;
 
 
@@ -21,19 +20,20 @@ public class ExaminerServiceImpl implements ExaminerService {
         this.javaQuestionService = javaQuestionService;
     }
 
-    Random random = new Random();
+    //Random random = new Random();
 
     @Override
     public Collection<Question> getQuestions(int amount) {
-        if (amount > javaQuestionService.questions.size()) {
+        if (amount > javaQuestionService.getAll().size()) {
             throw new StorageException();
         }
         Set<Question> examinerSet = new HashSet<>();
 
-        while (amount > 0 && amount <= javaQuestionService.questions.size()) {
+
+        while (examinerSet.size() < amount) {
             Question q = javaQuestionService.getRandomQuestion();
             examinerSet.add(q);
-            amount++;
+
 
         }
 
